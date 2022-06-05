@@ -15,13 +15,12 @@ export const paintCards = () => {
 
 export const findElement = () => {
     let element = document.querySelector('ul > li');
-    for (; ;) {
+    for (; element !== element.parentElement.lastElementChild;) {
         if (element.matches('.likedItem')) {
             element.style.backgroundColor = 'blue';
             element = element.nextElementSibling;
         } else {
             element = element.nextElementSibling;
-            if (element === element.parentElement.lastElementChild) break;
         }
     }
 };
