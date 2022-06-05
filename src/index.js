@@ -2,7 +2,7 @@ export const paintCards = () => {
     // мертвая коллукция
     let elements = document.querySelectorAll('ul > li:nth-child(odd)');
     for (let elem of elements) {
-        elem.style.background = 'red';
+        elem.style.backgroundColor = 'red';
     }
     //  живая коллекция
     // let elements = document.getElementsByClassName('item');
@@ -14,10 +14,14 @@ export const paintCards = () => {
 };
 
 export const findElement = () => {
-    let elements = document.querySelectorAll('ul > li');
-    for (let elem of elements) {
-        if (elem.matches('.likedItem')) {
-            elem.style.background = 'blue';
+    let element = document.querySelector('ul > li');
+    for (; ;) {
+        if (element.matches('.likedItem')) {
+            element.style.backgroundColor = 'blue';
+            element = element.nextElementSibling;
+        } else {
+            element = element.nextElementSibling;
+            if (element === element.parentElement.lastElementChild) break;
         }
     }
 };
